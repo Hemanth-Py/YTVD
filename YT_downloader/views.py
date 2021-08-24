@@ -54,6 +54,6 @@ def download(request):
         url = request.POST['link']
         choice = request.POST['choice']
         
-        obj = YouTube(url).streams.get_by_itag(choice).download('~/Downloads')
-    
+        obj = YouTube(url).streams.get_by_itag(choice).download()
+        print(obj)
     return redirect('home')
