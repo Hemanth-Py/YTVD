@@ -1,1 +1,1 @@
-web: gunicorn YT_project.wsgi --lof -file
+web: gunicorn YT_project.wsgi --log -file
