@@ -1,0 +1,51 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+
+    <section>
+
+        <div  class="container ">
+            
+            <div>
+                <div  class="ratio ratio-21x9">
+
+                    <iframe src="{{embed_link}}"></iframe>
+
+                </div>
+
+                <h3>{{video_title}}</h3>
+                
+
+                <form class="form-control" style="width: fit-content;" method="POST"  action="{% url 'download'%}">
+                    {% csrf_token %}
+                    <input  style="visibility: hidden;" type="text" value="{{url}}" name='link' >
+                    <div class="d-flex  ">
+                        <h5>video resolution : </h5>
+                        <select class="mx-1" style="width: fit-content;"  name = 'choice'>
+                            {% for itag,res in video_options %}
+                            <option  value="{{itag}}">{{res}}p</option>
+                            {% endfor %}
+                        </select>
+                        <button class="btn btn-danger" type="submit"><i class="bi bi-download"></i></i></button>
+                    </div>
+
+
+                </form>
+
+                
+            </div>
+
+
+
+        </div>
+
+    </section>
+    
+
+{%  endblock  %}
