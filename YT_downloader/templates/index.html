@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+
+    <section>
+        <div class="container text-center">
+            <div class="">
+                <h1 style="color: red;">
+                   YouTube
+                </h1>
+
+                <h3>
+                    video and audio downloader
+                </h3>
+         
+                <p>
+                    paste your youtube video link and click submit
+                </p>
+
+                <form method="POST" action="{% url 'result' %}">
+                    {% csrf_token %}
+                    {{form}}
+                    <br>
+                    <input class="btn btn-primary my-1" type="submit" value="submit">
+                    
+                </form>
+                
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+{%  endblock  %}
