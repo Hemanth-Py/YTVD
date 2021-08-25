@@ -57,4 +57,4 @@ def download(request):
         path = os.path.normpath('.')        
         obj = YouTube(url).streams.get_by_itag(choice).download(path)
         print(obj)
-    return obj
+    return redirect('home')
