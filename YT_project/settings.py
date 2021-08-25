@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nam)vaw8c!hi%gckalxdxlw24n=)f1-c3r++y7ji-cy5!##5(@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['utube-video-downloader.herokuapp.com']
+ALLOWED_HOSTS = ['utube-video-downloader.herokuapp.com','local hoast','127.0.0.1']
 
 
 # Application definition

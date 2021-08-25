@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import *
 from .forms import *
 from pytube import YouTube
+import os
 # Create your views here.
 
 def homepage(request):
@@ -21,8 +22,8 @@ def result(request):
 
         video_obj = YouTube(url)
 
-        video_streams = video_obj.streams.filter(file_extension='mp4')
-
+        video_streams = video_obj.streams
+        print(video_streams)
         itag = []
         video_res = []
 
@@ -32,7 +33,7 @@ def result(request):
                 itag.append(stream.itag)
                 video_res.append(int(stream.resolution[:-1]))
         
-        video_res.sort(reverse=True)
+        # video_res.sort(reverse=True)
 
         video_options = zip(itag,video_res)
 
@@ -53,7 +54,7 @@ def download(request):
         print(request.POST)
         url = request.POST['link']
         choice = request.POST['choice']
-        
-        obj = YouTube(url).streams.get_by_itag(choice).download()
+        path = os.path.normpath('.')        
+        obj = YouTube(url).streams.get_by_itag(choice).download(path)
         print(obj)
-    return redirect('home')
+    return obj
