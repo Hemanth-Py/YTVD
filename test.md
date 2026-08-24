@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     CW(("CloudWatch Event<br>(Thu 9 AM IST)")) --> FetchEvents
 
